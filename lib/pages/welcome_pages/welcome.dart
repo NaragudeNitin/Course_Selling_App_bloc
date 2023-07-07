@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:course_selling/pages/auth_page/login_page.dart';
 import 'package:course_selling/pages/welcome_pages/bloc/welcome_bloc.dart';
 import 'package:course_selling/pages/welcome_pages/bloc/welcome_event.dart';
 import 'package:course_selling/pages/welcome_pages/bloc/welcome_state.dart';
+import 'package:course_selling/themes/screen_constants/appimages.dart';
 import 'package:course_selling/themes/screen_constants/appstrings.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,7 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
+  PageController pageController = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -29,32 +32,36 @@ class _WelcomeState extends State<Welcome> {
               alignment: Alignment.topCenter,
               children: [
                 PageView(
+                  controller: pageController,
                   onPageChanged: (value) {
                     log(value.toString());
                     state.page = value;
                     BlocProvider.of<WelcomeBloc>(context).add(WelcomeEvents());
                   },
-                  children: const [
-                    Page(
-                      index: 0,
-                      buttonName: AppStrings.next,
-                      title: AppStrings.firstSeeLearning,
-                      subtitle: AppStrings.forgetABoutForAPap,
-                      imagePath: 'this is  imahegb',
+                  children: [
+                    _page(
+                      0,
+                      context,
+                      AppStrings.next,
+                      AppStrings.firstSeeLearning,
+                      AppStrings.forgetABoutForAPap,
+                      AppImages.readingPng,
                     ),
-                    Page(
-                      index: 1,
-                      buttonName: AppStrings.next,
-                      title: AppStrings.connectWithEveryOne,
-                      subtitle: AppStrings.alwaysKeepInTouch,
-                      imagePath: 'this is  imahegb',
+                    _page(
+                      1,
+                      context,
+                      AppStrings.getStarted,
+                      AppStrings.alwaysFascinatedLear,
+                      AppStrings.anywereAnyTime,
+                      AppImages.boyPng,
                     ),
-                    Page(
-                      index: 2,
-                      buttonName: 'Get started',
-                      title: AppStrings.alwaysFascinatedLear,
-                      subtitle: AppStrings.anywereAnyTime,
-                      imagePath: 'this is  imahegb',
+                    _page(
+                      2,
+                      context,
+                      AppStrings.getStarted,
+                      AppStrings.alwaysFascinatedLear,
+                      AppStrings.anywereAnyTime,
+                      AppImages.manPng,
                     ),
                   ],
                 ),
@@ -67,7 +74,7 @@ class _WelcomeState extends State<Welcome> {
                         color: Colors.grey,
                         activeColor: Colors.blue,
                         size: const Size.square(8.0),
-                        activeSize: const Size(10.0, 8.0),
+                        activeSize: const Size(20.0, 8.0),
                         activeShape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         )),
@@ -80,33 +87,18 @@ class _WelcomeState extends State<Welcome> {
       ),
     );
   }
-}
 
-class Page extends StatelessWidget {
-  const Page({
-    super.key,
-    required this.index,
-    required this.buttonName,
-    required this.title,
-    required this.subtitle,
-    required this.imagePath,
-    this.onPressed,
-  });
-
-  final int index;
-  final String buttonName;
-  final String title;
-  final String subtitle;
-  final String imagePath;
-  final void Function()? onPressed;
-  @override
-  Widget build(BuildContext context) {
+  Widget _page(int index, BuildContext context, String buttonName, String title,
+      String subtitle, String imagePath) {
     return Column(
       children: [
         SizedBox(
           width: 345.w,
           height: 345.w,
-          child: Text(imagePath),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.fill,
+          ),
         ),
         SizedBox(
           child: Text(
@@ -129,32 +121,55 @@ class Page extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          width: 325.w,
-          height: 50.h,
-          margin: EdgeInsets.only(
-            left: 25.w,
-            right: 25.w,
-            top: 50.h,
-          ),
-          decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(15.w),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(3, 5),
-                ),
-              ]),
-          child: Center(
-            child: Text(
-              buttonName,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.normal),
+        GestureDetector(
+          onTap: () {
+            //within 0-2 index
+            if (index < 2) {
+              index = index + 1;
+              // animation
+              pageController.animateToPage(index,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.decelerate);
+            } else {
+              //jump to new page
+              log('into else condition');
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) => const MyHomePage(),
+              //   ),
+              // );
+
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('myHomePage', (route) => false);
+            }
+          },
+          child: Container(
+            width: 325.w,
+            height: 50.h,
+            margin: EdgeInsets.only(
+              left: 25.w,
+              right: 25.w,
+              top: 50.h,
+            ),
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(15.w),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(3, 5),
+                  ),
+                ]),
+            child: Center(
+              child: Text(
+                buttonName,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.normal),
+              ),
             ),
           ),
         ),
@@ -162,3 +177,99 @@ class Page extends StatelessWidget {
     );
   }
 }
+
+// class Page extends StatelessWidget {
+//   const Page({
+//     super.key,
+//     required this.index,
+//     required this.buttonName,
+//     required this.title,
+//     required this.subtitle,
+//     required this.imagePath,
+//     required this.pageController,
+//   });
+
+//   final int index;
+//   final String buttonName;
+//   final String title;
+//   final String subtitle;
+//   final String imagePath;
+//   final PageController pageController;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // PageController pageController = PageController();
+//     return Column(
+//       children: [
+//         SizedBox(
+//           width: 345.w,
+//           height: 345.w,
+//           child: Image.asset(
+//             imagePath,
+//             fit: BoxFit.fill,
+//           ),
+//         ),
+//         SizedBox(
+//           child: Text(
+//             title,
+//             style: TextStyle(
+//               color: Colors.black,
+//               fontSize: 24.sp,
+//               fontWeight: FontWeight.normal,
+//             ),
+//           ),
+//         ),
+//         Container(
+//           padding: EdgeInsets.only(left: 30.w, right: 30.w),
+//           child: Text(
+//             subtitle,
+//             style: TextStyle(
+//               color: Colors.black,
+//               fontSize: 14.sp,
+//               fontWeight: FontWeight.normal,
+//             ),
+//           ),
+//         ),
+//         GestureDetector(
+//           onTap: () {
+//             print('object on tap pressed');
+//             if (index < 3) {
+//               pageController.animateToPage(index,
+//                   duration: const Duration(microseconds: 500),
+//                   curve: Curves.decelerate);
+//             } else {}
+//           },
+//           child: Container(
+//             width: 325.w,
+//             height: 50.h,
+//             margin: EdgeInsets.only(
+//               left: 25.w,
+//               right: 25.w,
+//               top: 50.h,
+//             ),
+//             decoration: BoxDecoration(
+//                 color: Colors.blue,
+//                 borderRadius: BorderRadius.circular(15.w),
+//                 boxShadow: [
+//                   BoxShadow(
+//                     color: Colors.grey.withOpacity(0.5),
+//                     spreadRadius: 1,
+//                     blurRadius: 5,
+//                     offset: const Offset(3, 5),
+//                   ),
+//                 ]),
+//             child: Center(
+//               child: Text(
+//                 buttonName,
+//                 style: TextStyle(
+//                     color: Colors.white,
+//                     fontSize: 16.sp,
+//                     fontWeight: FontWeight.normal),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }

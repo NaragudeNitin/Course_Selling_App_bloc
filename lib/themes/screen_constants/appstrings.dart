@@ -10,7 +10,7 @@ class AppStrings {
   static const String alwaysFascinatedLear = 'Always facinated learning';
   static const String anywereAnyTime =
       'Anywhere, anytime. The time is at your discretion so study whenever you want';
-  // static const String
+  static const String getStarted = 'Get Started';
   // static const String
   // static const String
   // static const String
