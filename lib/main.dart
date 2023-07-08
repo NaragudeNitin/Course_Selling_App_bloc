@@ -1,5 +1,6 @@
 import 'package:course_selling/app_blocs.dart';
-import 'package:course_selling/pages/auth_page/login_page.dart';
+import 'package:course_selling/pages/sign_in/my_home_page.dart';
+import 'package:course_selling/pages/sign_in/sign_in.dart';
 import 'package:course_selling/pages/welcome_pages/bloc/welcome_bloc.dart';
 import 'package:course_selling/pages/welcome_pages/welcome.dart';
 import 'package:flutter/material.dart';
@@ -31,12 +32,14 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            appBarTheme:
+                const AppBarTheme(elevation: 0, backgroundColor: Colors.white),
             useMaterial3: true,
           ),
           home: const Welcome(),
           routes: {
             "myHomePage": (context) => const MyHomePage(),
+            "signIn": (context) => const SignIn(),
           },
         ),
       ),

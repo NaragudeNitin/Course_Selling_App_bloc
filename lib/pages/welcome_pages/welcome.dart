@@ -1,9 +1,8 @@
 import 'dart:developer';
-
-import 'package:course_selling/pages/auth_page/login_page.dart';
 import 'package:course_selling/pages/welcome_pages/bloc/welcome_bloc.dart';
 import 'package:course_selling/pages/welcome_pages/bloc/welcome_event.dart';
 import 'package:course_selling/pages/welcome_pages/bloc/welcome_state.dart';
+import 'package:course_selling/themes/screen_constants/appcolors.dart';
 import 'package:course_selling/themes/screen_constants/appimages.dart';
 import 'package:course_selling/themes/screen_constants/appstrings.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -19,7 +18,7 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
-  PageController pageController = PageController(initialPage: 1);
+  PageController pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -71,8 +70,8 @@ class _WelcomeState extends State<Welcome> {
                     position: state.page,
                     dotsCount: 3,
                     decorator: DotsDecorator(
-                        color: Colors.grey,
-                        activeColor: Colors.blue,
+                        color: AppColors.primaryThirdElementText,
+                        activeColor: AppColors.primaryElement,
                         size: const Size.square(8.0),
                         activeSize: const Size(20.0, 8.0),
                         activeShape: RoundedRectangleBorder(
@@ -104,7 +103,7 @@ class _WelcomeState extends State<Welcome> {
           child: Text(
             title,
             style: TextStyle(
-              color: Colors.black,
+              color: AppColors.primaryText,
               fontSize: 24.sp,
               fontWeight: FontWeight.normal,
             ),
@@ -115,7 +114,7 @@ class _WelcomeState extends State<Welcome> {
           child: Text(
             subtitle,
             style: TextStyle(
-              color: Colors.black,
+              color: AppColors.primarySecondaryElementText,
               fontSize: 14.sp,
               fontWeight: FontWeight.normal,
             ),
@@ -140,7 +139,7 @@ class _WelcomeState extends State<Welcome> {
               // );
 
               Navigator.of(context)
-                  .pushNamedAndRemoveUntil('myHomePage', (route) => false);
+                  .pushNamedAndRemoveUntil('signIn', (route) => false);
             }
           },
           child: Container(
@@ -152,7 +151,7 @@ class _WelcomeState extends State<Welcome> {
               top: 50.h,
             ),
             decoration: BoxDecoration(
-                color: Colors.blue,
+                color: AppColors.primaryElement,
                 borderRadius: BorderRadius.circular(15.w),
                 boxShadow: [
                   BoxShadow(

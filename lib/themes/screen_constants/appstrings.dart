@@ -11,15 +11,17 @@ class AppStrings {
   static const String anywereAnyTime =
       'Anywhere, anytime. The time is at your discretion so study whenever you want';
   static const String getStarted = 'Get Started';
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
+
+  /////////--------sign in / up-------////////////
+  static const String logIn = 'Log In';
+  static const String orUseYourEmail = 'Or use your email account to login';
+  static const String email = 'Email';
+  static const String enterYourEmail = 'Enter your Email address';
+  static const String enterYourPassword = 'Enter your Password';
+  static const String password = 'Password';
+  static const String forgotPassword = 'Forgot Password?';
+  static const String login = 'Login';
+  static const String register = 'Register Here';
   // static const String
   // static const String
   // static const String
