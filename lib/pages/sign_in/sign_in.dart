@@ -1,13 +1,14 @@
 import 'package:course_selling/pages/sign_in/signin_bloc/signin_blocs.dart';
 import 'package:course_selling/pages/sign_in/signin_bloc/signin_event.dart';
 import 'package:course_selling/pages/sign_in/signin_controller.dart';
-import 'package:course_selling/pages/sign_in/widgets/sign_in_widget.dart';
+// import 'package:course_selling/pages/sign_in/widgets/sign_in_widget.dart';
 import 'package:course_selling/themes/screen_constants/appstrings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../themes/screen_constants/appimages.dart';
+import '../common_widgets.dart';
 import 'signin_bloc/signin_states.dart';
 
 class SignIn extends StatefulWidget {
@@ -27,7 +28,7 @@ class _SignInState extends State<SignIn> {
           child: SafeArea(
             child: Scaffold(
               backgroundColor: Colors.white,
-              appBar: buildAppBar(),
+              appBar: buildAppBar(AppStrings.logIn),
               body: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,9 +74,8 @@ class _SignInState extends State<SignIn> {
                     buildLoginAndRegiButton(AppStrings.logIn, 'login', () {
                       SignInController(context: context).handleSignIn("email");
                     }),
-                    buildLoginAndRegiButton(AppStrings.register, 'regiser', () {
-                      // SignInController(context: context)
-                      //     .handleSignIn("password");
+                    buildLoginAndRegiButton(AppStrings.signUp, 'register', () {
+                      Navigator.pushNamed(context, "register");
                     }),
                   ],
                 ),

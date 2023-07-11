@@ -21,18 +21,22 @@ class AppStrings {
   static const String password = 'Password';
   static const String forgotPassword = 'Forgot Password?';
   static const String login = 'Login';
-  static const String register = 'Register Here';
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
+  static const String register = 'Register';
+  static const String signUp = 'Sign Up';
+  static const String userName = 'User Name';
+  static const String enterYourDetailsBelow =
+      'Enter your details below & free sign up';
+  static const String enterYourUserName = 'Enter your User name';
+  static const String enterYourEmailAd = 'Enter your Email Address';
+  static const String confirmPassword = 'Confirm Password';
+  static const String bycreatingAccountYouAgree =
+      'By creating an account you have to agree with our terms and conditions';
+  static const String usernameCanNotEm = 'User name can not be empty';
+  static const String emailCanNotEmp = 'Email can not be empty';
+  static const String passwordCanNotEm = 'password can not be empty';
+  static const String confPassCanNotEmp =
+      'Confirm password field can not be empty';
+  static const String passwordDoesNotMatches = 'Password is not matched';
   // static const String
   // static const String
   // static const String
