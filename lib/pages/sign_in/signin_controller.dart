@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:course_selling/common/constants/constant.dart';
 import 'package:course_selling/common/widgets/flutter_toastw.dart';
+import 'package:course_selling/global.dart';
 import 'package:course_selling/pages/sign_in/signin_bloc/signin_blocs.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +48,8 @@ class SignInController {
           var user = credential.user;
           if (user != null) {
             //we got verified user from firebase
+            Global.storageService
+                .setString(AppConstants.STORAGE_USER_TOKEN_KEY, '12345678');
             Navigator.of(context)
                 .pushNamedAndRemoveUntil("/application", (route) => false);
             log('User exist with user name $user');

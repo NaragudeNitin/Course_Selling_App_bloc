@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:course_selling/common/routes/names.dart';
+import 'package:course_selling/global.dart';
 import 'package:course_selling/pages/application/application_bloc/app_blocs.dart';
 import 'package:course_selling/pages/register/register.dart';
 import 'package:course_selling/pages/register/register_bloc/register_bloc.dart';
@@ -61,7 +62,19 @@ class AppPages {
       //checking for route name matching when navigator gets triggered
       var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
-        log('valid route name ${settings.name}');
+        bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+        if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
+          log('checking whether application is first time started and if it is started before it will take us to login screen');
+          bool isLoggedIn = Global.storageService.getIsLoggedIn();
+          if (isLoggedIn) {
+            log('If logged in is true then it will go to application page');
+            return MaterialPageRoute(
+                builder: (_) => const ApplicationPage(), settings: settings);
+          }
+          return MaterialPageRoute(
+              builder: (_) => const SignIn(), settings: settings);
+        }
+        log('valid route name ${settings.name}, if app is launched first time it will show welcome page');
         return MaterialPageRoute(
             builder: (_) => result.first.page, settings: settings);
       }

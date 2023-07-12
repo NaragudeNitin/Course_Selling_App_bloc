@@ -135,6 +135,7 @@ class _WelcomeState extends State<Welcome> {
               //jump to new page
               Global.storageService
                   .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
+              log("The value is: ${Global.storageService.getDeviceFirstOpen()}");
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('/signIn', (route) => false);
             }
