@@ -46,6 +46,8 @@ class SignInController {
           var user = credential.user;
           if (user != null) {
             //we got verified user from firebase
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("/application", (route) => false);
             log('User exist with user name $user');
           } else {
             //we have error getting user from firebase

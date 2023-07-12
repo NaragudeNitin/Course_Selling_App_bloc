@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../themes/screen_constants/appimages.dart';
-import '../../themes/screen_constants/appstrings.dart';
+import '../../common/constants/appimages.dart';
+import '../../common/constants/appstrings.dart';
 import '../common_widgets.dart';
 
 class Register extends StatefulWidget {

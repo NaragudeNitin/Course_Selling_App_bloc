@@ -13,7 +13,7 @@ class AppColors {
   /// main text color black
   static const Color primaryText = Color(0xFF000000);
   // video backgroun color
-  static const Color primary_bg = Color(0xD2202F3E);
+  static const Color primaryBg = Color(0xD2202F3E);
 
   /// main widget text color white
   static const Color primaryElementText = Color(0xFFFFFFFF);

@@ -1,6 +1,6 @@
-import 'package:course_selling/themes/screen_constants/appcolors.dart';
-import 'package:course_selling/themes/screen_constants/appimages.dart';
-import 'package:course_selling/themes/screen_constants/appstrings.dart';
+import 'package:course_selling/common/constants/appcolors.dart';
+import 'package:course_selling/common/constants/appimages.dart';
+import 'package:course_selling/common/constants/appstrings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

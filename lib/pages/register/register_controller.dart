@@ -1,6 +1,6 @@
 import 'package:course_selling/common/widgets/flutter_toastw.dart';
 import 'package:course_selling/pages/register/register_bloc/register_bloc.dart';
-import 'package:course_selling/themes/screen_constants/appstrings.dart';
+import 'package:course_selling/common/constants/appstrings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
