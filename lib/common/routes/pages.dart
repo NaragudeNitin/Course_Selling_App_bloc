@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:course_selling/common/routes/names.dart';
 import 'package:course_selling/global.dart';
 import 'package:course_selling/pages/application/application_bloc/app_blocs.dart';
+import 'package:course_selling/pages/home_page/home_page_blocs/home_page_blocs.dart';
+import 'package:course_selling/pages/home_page/homepage.dart';
 import 'package:course_selling/pages/register/register.dart';
 import 'package:course_selling/pages/register/register_bloc/register_bloc.dart';
 import 'package:course_selling/pages/sign_in/sign_in.dart';
@@ -43,6 +45,13 @@ class AppPages {
         page: const ApplicationPage(),
         bloc: BlocProvider(
           create: (_) => AppBlocs(),
+        ),
+      ),
+      PageEntities(
+        route: AppRoutes.HOME_PAGE,
+        page: const HomePage(),
+        bloc: BlocProvider(
+          create: (_) => HomePageBlocs(),
         ),
       ),
     ];

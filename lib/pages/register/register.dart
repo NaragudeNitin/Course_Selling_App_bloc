@@ -35,7 +35,7 @@ class _RegisterState extends State<Register> {
                     Center(
                         child: reusableText(AppStrings.enterYourDetailsBelow)),
                     Container(
-                      margin: EdgeInsets.only(top: 50.h),
+                      margin: EdgeInsets.only(top: 60.h),
                       padding: EdgeInsets.symmetric(horizontal: 24.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

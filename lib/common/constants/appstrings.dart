@@ -37,9 +37,9 @@ class AppStrings {
   static const String confPassCanNotEmp =
       'Confirm password field can not be empty';
   static const String passwordDoesNotMatches = 'Password is not matched';
-  // static const String
-  // static const String
-  // static const String
+  static const String searchYourCourse = 'search your course';
+  static const String chooseYourText = 'Choose your course';
+  static const String seeAll = 'See All';
   // static const String
   // static const String
   // static const String

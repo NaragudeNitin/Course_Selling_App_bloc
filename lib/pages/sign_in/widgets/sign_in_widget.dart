@@ -27,7 +27,7 @@ AppBar buildAppBar() {
 Widget buildThirdPartyLogin(BuildContext context) {
   return Container(
     margin: EdgeInsets.only(top: 30.h, bottom: 20.h),
-    padding: EdgeInsets.only(left: 24.w, right: 24.w),
+    padding: EdgeInsets.only(left: 70.w, right: 70.w),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [

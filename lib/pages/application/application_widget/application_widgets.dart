@@ -1,3 +1,4 @@
+import 'package:course_selling/pages/home_page/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,7 +7,7 @@ import '../../../common/constants/appimages.dart';
 
 Widget buildPage(int index) {
   List<Widget> _widget = const [
-    Center(child: Text("home")),
+    HomePage(),
     Center(child: Text("Search")),
     Center(child: Text("Course")),
     Center(child: Text("Chat")),
