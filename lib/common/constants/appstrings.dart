@@ -40,6 +40,28 @@ class AppStrings {
   static const String searchYourCourse = 'search your course';
   static const String chooseYourText = 'Choose your course';
   static const String seeAll = 'See All';
+
+  //Profile section
+  static const String profile = 'Profile';
+  static const String name = 'Name';
+  static const String myCourses = 'My Courses';
+  static const String rating = 'Ratings';
+  static const String settings = 'Settings';
+  static const String paymentDetails = 'Payment details';
+  static const String achievement = 'Achievement';
+  static const String love = 'Love';
+  static const String learningReminders = 'Learning Reminders';
+  // static const String
+  // static const String
+  // static const String
+  // static const String
+  // static const String
+  // static const String
+  // static const String
+  // static const String
+  // static const String
+  // static const String
+  // static const String
   // static const String
   // static const String
   // static const String

@@ -5,6 +5,8 @@ import 'package:course_selling/global.dart';
 import 'package:course_selling/pages/application/application_bloc/app_blocs.dart';
 import 'package:course_selling/pages/home_page/home_page_blocs/home_page_blocs.dart';
 import 'package:course_selling/pages/home_page/homepage.dart';
+import 'package:course_selling/pages/profile/settings/settings_bloc/settings_blocs.dart';
+import 'package:course_selling/pages/profile/settings/settings_page.dart';
 import 'package:course_selling/pages/register/register.dart';
 import 'package:course_selling/pages/register/register_bloc/register_bloc.dart';
 import 'package:course_selling/pages/sign_in/sign_in.dart';
@@ -52,6 +54,13 @@ class AppPages {
         page: const HomePage(),
         bloc: BlocProvider(
           create: (_) => HomePageBlocs(),
+        ),
+      ),
+      PageEntities(
+        route: AppRoutes.SETTINGS,
+        page: const SettingsPage(),
+        bloc: BlocProvider(
+          create: (_) => SettingsBlocs(),
         ),
       ),
     ];

@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common/constants/appcolors.dart';
+import '../../../common/widgets/base_text_widget.dart';
 
 AppBar buildHomePageAppBar() {
   return AppBar(
@@ -202,10 +203,10 @@ Widget menuView() {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            _reusableText(AppStrings.chooseYourText),
+            reusableText(AppStrings.chooseYourText),
             GestureDetector(
               onTap: () {},
-              child: _reusableText(
+              child: reusableText(
                 AppStrings.seeAll,
                 color: AppColors.primaryThirdElementText,
                 fontSize: 12,
@@ -232,20 +233,6 @@ Widget menuView() {
   );
 }
 
-Widget _reusableText(String text,
-    {Color? color = AppColors.primaryText,
-    double fontSize = 16,
-    FontWeight? fontWeight = FontWeight.bold}) {
-  return Text(
-    text,
-    style: TextStyle(
-      color: color,
-      fontWeight: fontWeight,
-      fontSize: fontSize.sp,
-    ),
-  );
-}
-
 // for menu button reusable text
 
 Widget _reusableMenuText(String menuText,
@@ -261,7 +248,7 @@ Widget _reusableMenuText(String menuText,
         color: backGroundColor,
       ),
     ),
-    child: _reusableText(
+    child: reusableText(
       menuText,
       color: textColor,
       fontWeight: FontWeight.normal,

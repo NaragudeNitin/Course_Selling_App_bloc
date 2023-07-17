@@ -27,15 +27,15 @@ class AppImages {
   static const String artPng = 'assets/icons/Art.png';
   static const String image1 = 'assets/icons/Image(1).png';
   static const String image2 = 'assets/icons/Image(2).png';
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
-  // static const String
+  static const String moreVertical = 'assets/icons/more-vertical.png';
+  static const String headpicPng = 'assets/icons/headpic.png';
+  static const String edit3 = 'assets/icons/edit_3.png';
+  static const String settings = 'assets/icons/settings.png';
+  static const String creditCardPng = 'assets/icons/credit-card.png';
+  static const String awardpng = 'assets/icons/award.png';
+  static const String heart1 = 'assets/icons/heart(1).png';
+  static const String cube = 'assets/icons/cube.png';
+  static const String logoutPng = 'assets/icons/Logout.png';
   // static const String
   // static const String
   // static const String
