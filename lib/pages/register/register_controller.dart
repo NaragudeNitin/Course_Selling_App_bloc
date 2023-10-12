@@ -1,3 +1,4 @@
+import 'package:course_selling/common/constants/constant.dart';
 import 'package:course_selling/common/widgets/flutter_toastw.dart';
 import 'package:course_selling/pages/register/register_bloc/register_bloc.dart';
 import 'package:course_selling/common/constants/appstrings.dart';
@@ -44,6 +45,8 @@ class RegisterController {
       if (credential.user != null) {
         await credential.user?.sendEmailVerification();
         await credential.user?.updateDisplayName(userName);
+        String photoUrl = "${AppConstants.SERVER_API_URL}uploads/default.png";
+        await credential.user?.updatePhotoURL(photoUrl);
         toastInfo(
           msg:
               'An Email has been sent to registerd email. To Activate it please check email box and click o link',

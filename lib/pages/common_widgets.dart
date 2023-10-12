@@ -67,8 +67,12 @@ Widget reusableText(String text) {
   );
 }
 
-Widget buildTextField(String hintText, String textType, String iconPath,
-    void Function(String value)? func) {
+Widget buildTextField(
+  String hintText,
+  String textType,
+  String iconPath,
+  void Function(String value)? func,
+) {
   return Container(
     width: 325.w,
     height: 50.h,
